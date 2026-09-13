@@ -1,0 +1,2 @@
+import FocusLockQuiz from "@/components/FocusLockQuiz";
+export default function Quiz(){ return <main className="min-h-screen bg-slate-100 p-6"><div className="mx-auto max-w-3xl"><h1 className="mb-6 text-3xl font-black">Quiz sécurisé — Économie</h1><FocusLockQuiz/></div></main> }

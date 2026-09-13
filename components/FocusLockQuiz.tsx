@@ -1,0 +1,8 @@
+"use client";
+import { useEffect, useRef, useState } from "react";
+export default function FocusLockQuiz(){
+ const [warnings,setWarnings]=useState(0); const [locked,setLocked]=useState(false); const warned=useRef(false);
+ useEffect(()=>{const flag=()=>{if(locked)return; if(!warned.current){warned.current=true;setWarnings(w=>w+1);setTimeout(()=>warned.current=false,1200);} else {setWarnings(2);setLocked(true)}}; const a=()=>{if(document.hidden)flag()}; document.addEventListener("visibilitychange",a); window.addEventListener("blur",flag); return()=>{document.removeEventListener("visibilitychange",a);window.removeEventListener("blur",flag)}},[locked]);
+ const questions=["Quelle est la principale fonction de la monnaie ?","Que mesure l’élasticité-prix de la demande ?","Quelle proposition décrit le mieux un marché concurrentiel ?"];
+ return <div className="rounded-3xl bg-white p-7 shadow-sm">{locked&&<div className="mb-6 rounded-2xl bg-red-50 p-5 font-semibold text-red-700">Quiz verrouillé : deux alertes de sortie d’écran ont été détectées.</div>}{warnings>0&&!locked&&<div className="mb-6 rounded-2xl bg-amber-50 p-5 font-semibold text-amber-700">Attention : rester sur cette page. Alerte {warnings}/2.</div>}{questions.map((q,i)=><div className="mb-6" key={q}><p className="font-bold">{i+1}. {q}</p><div className="mt-3 space-y-2">{["A","B","C","D"].map(x=><label className="block rounded-xl border p-3" key={x}><input type="radio" name={`q${i}`}/> <span className="ml-2">{x} — Réponse proposée</span></label>)}</div></div>)}<button disabled={locked} className="w-full rounded-xl bg-maroc.green p-4 font-bold text-white disabled:bg-slate-300">{locked?"Quiz verrouillé":"Soumettre le quiz"}</button></div>
+}

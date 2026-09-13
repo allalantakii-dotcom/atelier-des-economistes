@@ -1,0 +1,4 @@
+import Logo from "@/components/Logo";
+export default function Login(){
+  return <main className="min-h-screen bg-slate-950 px-6 py-10 text-white"><div className="mx-auto max-w-md"><Logo light/><div className="mt-16 rounded-3xl bg-white p-8 text-slate-900 shadow-2xl"><h1 className="text-3xl font-black">Bienvenue</h1><p className="mt-2 text-slate-500">Connectez-vous à votre espace étudiant ou parent.</p><div className="mt-7 space-y-4"><input className="w-full rounded-xl border p-4" placeholder="Email ou numéro WhatsApp"/><input className="w-full rounded-xl border p-4" type="password" placeholder="Mot de passe"/><a href="/dashboard" className="block rounded-xl bg-maroc.green p-4 text-center font-bold text-white">Se connecter</a></div></div></div></main>
+}
