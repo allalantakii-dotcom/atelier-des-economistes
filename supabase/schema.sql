@@ -33,6 +33,26 @@ create table if not exists attendance_logs (
   created_at timestamptz not null default now()
 );
 
+create table if not exists classroom_sessions (
+  id uuid primary key default gen_random_uuid(),
+  student_id uuid references students(id) on delete cascade,
+  room_name text not null,
+  session_id text not null unique,
+  device_fingerprint_hash text not null,
+  connected_at timestamptz not null default now(),
+  disconnected_at timestamptz,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists classroom_hand_raises (
+  id uuid primary key default gen_random_uuid(),
+  room_name text not null,
+  student_id uuid references students(id) on delete cascade,
+  raised_at timestamptz not null default now(),
+  approved_at timestamptz,
+  lowered_at timestamptz
+);
+
 create table if not exists quizzes (
   id uuid primary key default gen_random_uuid(),
   title text not null,
@@ -68,8 +88,12 @@ alter table attendance_logs enable row level security;
 alter table quizzes enable row level security;
 alter table quiz_submissions enable row level security;
 alter table parent_tokens enable row level security;
+alter table classroom_sessions enable row level security;
+alter table classroom_hand_raises enable row level security;
 
 revoke all on leads from anon, authenticated;
 revoke all on students from anon, authenticated;
 revoke all on attendance_logs from anon, authenticated;
 revoke all on parent_tokens from anon, authenticated;
+revoke all on classroom_sessions from anon, authenticated;
+revoke all on classroom_hand_raises from anon, authenticated;

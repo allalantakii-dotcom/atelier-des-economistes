@@ -51,6 +51,30 @@ body {
 .flag-gradient {
   background:linear-gradient(110deg,#006233 0%,#006233 45%,#c8102e 45%,#c8102e 100%);
 }
+.classroom-entry-button {
+  background:#006233 !important;
+  color:#fff !important;
+  border:1px solid #006233 !important;
+}
+.classroom-entry-button:hover {
+  background:#004b27 !important;
+}
+.site-login-link {
+  background:#fff !important;
+  color:#10221a !important;
+  border:1px solid rgba(255,255,255,.85) !important;
+}
+.site-login-link:hover {
+  background:#eaf5ef !important;
+}
+.auth-submit-button {
+  background:#006233 !important;
+  color:#fff !important;
+  border:1px solid #006233 !important;
+}
+.auth-submit-button:hover {
+  background:#004b27 !important;
+}
 .float-card { animation:float 6s ease-in-out infinite; }
 .premium-card {
   position:relative;

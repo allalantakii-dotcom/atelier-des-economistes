@@ -270,6 +270,9 @@ export default function AtelierLanding() {
             <a href="#inscription" className="rounded-full border border-green-300/40 bg-[#0a5a3e]/70 px-4 py-2 text-sm font-medium text-white transition hover:bg-[#0a5a3e]">
               {t.contact}
             </a>
+            <a href="/login" className="site-login-link rounded-full px-4 py-2 text-sm font-extrabold transition">
+              Student / Teacher login
+            </a>
           </div>
         </nav>
 
@@ -301,6 +304,10 @@ export default function AtelierLanding() {
               </a>
               <a href="#coaching" className="rounded-xl border border-white/20 bg-white/5 px-6 py-3.5 font-bold text-white transition hover:bg-white/10 hover:border-white/30">
                 {t.secondary}
+              </a>
+              <a href="/login" className="inline-flex items-center gap-2 rounded-xl border border-green-300/50 bg-[#0a5a3e] px-6 py-3.5 font-bold text-white shadow-[0_18px_38px_rgba(10,90,62,0.3)] transition hover:bg-[#006233]">
+                Enter classroom
+                <GraduationCap className="h-4 w-4" />
               </a>
             </div>
 

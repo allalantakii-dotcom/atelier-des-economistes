@@ -27,6 +27,16 @@ Recommended MVP:
 
 The platform itself can start at $0/month, excluding optional domain, WhatsApp provider fees, Zoom paid features, and payment-provider fees.
 
+## Live classroom preview
+
+The classroom foundation is available at `/classroom/economie-groupe-a`. It uses LiveKit Cloud for browser audio/video, participant tiles, and raise-hand messages.
+
+LiveKit's current Build plan is $0/month and includes 5,000 WebRTC participant minutes, 100 concurrent connections, and 50 GB of transfer. It is usage-limited, not unlimited. Copy `.env.example` to `.env.local` and add the LiveKit project URL, API key, and secret before joining a room.
+
+Teacher preview: `/classroom/economie-groupe-a?role=teacher&identity=teacher-demo`
+
+The current login page is still a visual placeholder. Before production, connect the token route to Supabase Auth and enforce the `classroom_sessions` one-device lock server-side. Do not expose LiveKit secrets in browser code.
+
 ## Important before production
 - Replace placeholder payment information with real bank/Cash Plus details.
 - Configure Supabase Auth and proper role-based access.
